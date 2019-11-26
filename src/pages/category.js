@@ -7,6 +7,7 @@ import Article from "../components/Article/";
 import Headline from "../components/Article/Headline";
 import List from "../components/List";
 import Seo from "../components/Seo";
+import axios from "axios";
 
 const CategoryPage = props => {
   const {
@@ -70,6 +71,15 @@ const CategoryPage = props => {
           </Article>
         )}
       </ThemeContext.Consumer>
+      <button
+        onClick={async () => {
+          await axios.get("http://localhost:5000/").then(res => {
+            console.log("res", res);
+          });
+        }}
+      >
+        내가 만든 Backend와 데이터 주고받기
+      </button>
 
       <Seo facebook={facebook} />
     </React.Fragment>
